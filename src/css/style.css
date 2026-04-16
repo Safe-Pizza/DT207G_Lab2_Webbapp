@@ -70,6 +70,21 @@ input[type="text"] {
   margin-bottom: 1em;
 }
 
+button {
+  background-color: rgb(144, 103, 110);
+  padding: 1em;
+  min-width: 100px;
+  font-size: 1em;
+  cursor: pointer;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:active {
+  background-color: rgb(103, 74, 79);
+}
+
 @media screen and (max-width: 600px) {
   body {
     font-size: 0.8em;
@@ -109,7 +124,7 @@ input[type="text"] {
     padding-top: 1rem;
   }
 
-  /*ändrar humburgermeny till kryss vid klick*/
+  /*ändrar humburgermeny till kryss*/
 
   .change .bar1 {
     transform: translate(0, 11px) rotate(-45deg);
