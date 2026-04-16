@@ -1,6 +1,13 @@
 "use strict";
+
+document.addEventListener("DOMContentLoaded", () => {
+
 //eventlyssnare för submit knapp
 document.querySelector("#submit-button").addEventListener("click", addJob);
+
+})
+
+
 
 //funktion för att lägga till jobb i API
 function addJob() {
