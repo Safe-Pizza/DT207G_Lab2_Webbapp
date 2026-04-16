@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/style.css">
+    <title>dt207g-lab2-webbapp</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Lab2 - API</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Startsida</a></li>
+                    <li class="current-page"><a href="/add">Lägg till</a></li>
+                    <li><a href="/about">Om sidan</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h2>Lägg till</h2>
+            <p>Här kan du lägga till fler jobb i APIet</p>
+
+            <div id="form-add">
+                <label for="companyname">Företagsnamn</label><br>
+                <input type="text" id="companyname"><br>
+
+                <label for="jobtitle">Jobbtitel</label><br>
+                <input type="text" id="jobtitle"><br>
+
+                <label for="desctiption">Företagsnamn</label><br>
+                <input type="text" id="description"><br>
+
+                <label for="startdate">Företagsnamn</label><br>
+                <input type="text" id="startdate"><br>
+
+                <label for="enddate">Företagsnamn</label><br>
+                <input type="text" id="enddate"><br>
+
+                <button type="submit">Lägg till</button>
+
+            </div>
+        </main>
+        <footer>
+            <p>&copy; Hanna Lindkvist, 2026</p>
+        </footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
