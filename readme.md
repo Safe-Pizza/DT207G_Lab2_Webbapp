@@ -13,7 +13,8 @@ Du ska skapa en webbapplikation som använder FetchAPI. Applikationen ska konsum
 
 ## Lösning
 Här kan du läsa om vilka funktioner som finns, vad som används samt hur repot kan installeras lokalt i din dator.
-OBS! Även repot för webbtjänsten måste installeras och köras för att detta repo ska fungera: https://github.com/safe-pizza/DT207G_Laboration2.git
+
+⚠️ OBS! Även repot för webbtjänsten måste installeras och köras för att detta repo ska fungera: https://github.com/safe-pizza/DT207G_Laboration2.git
 
 ### Funktioner
 * **Ta bort jobb:** Jobb kan tas bort med knapp på startsidan,
