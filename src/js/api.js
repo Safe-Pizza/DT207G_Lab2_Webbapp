@@ -26,6 +26,7 @@ function writeJobs(jobs) {
        let content = `
        <h3>${job.jobtitle}</h3>
        <p><strong>Företag: </strong>${job.companyname}</p>
+       <p><strong>Stad: </strong>${job.location}</p>
        <p><strong>Beskrivning: </strong>${job.descripton}</p>
        <p><strong>Anställningsdatum: </strong>${job.startdate}</p>
        <p><strong>Anställning avslutad: </strong>${job.enddate}</p>`;
