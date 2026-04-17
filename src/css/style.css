@@ -82,7 +82,7 @@ button {
   margin-right: 1em;
   background-color: rgb(144, 103, 110);
   padding: 1em;
-  min-width: 100px;
+  min-width: 50px;
   font-size: 1em;
   cursor: pointer;
   color: white;
@@ -102,10 +102,9 @@ button:active {
   background-color: rgb(79, 20, 20);
 }
 
-.link-change {
+a.link-change {
   background-color: rgb(144, 103, 110);
   padding: 1em;
-  min-width: 100px;
   font-size: 1em;
   color: white;
   text-decoration: none;
