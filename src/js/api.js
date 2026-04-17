@@ -2,7 +2,6 @@
 
 fetchData();
 
-
 //fetch funktion jobb-API
 async function fetchData() {
     try {
@@ -27,6 +26,7 @@ async function deleteJob(id) {
     fetchData();
 }
 
+//funktion för PUT (ändring av befintligt jobb) i API
 async function changeJob(id, job) {
     const res = await fetch(`http://localhost:5000/jobs/${id}`, {
         method: "PUT",
@@ -49,6 +49,7 @@ function writeJobs(jobs) {
 
     //loop för utskrift
     jobs.forEach(job => {
+        //skapa element
         let articleEl = document.createElement("article");
         let deleteButtonEl = document.createElement("button");
         let aEl = document.createElement("a");
@@ -60,6 +61,7 @@ function writeJobs(jobs) {
        <p><strong>Anställningsdatum: </strong>${job.startdate}</p>
        <p><strong>Anställning avslutad: </strong>${job.enddate}</p>`;
 
+       //lägg till attribut och text
         aEl.href = `#form-change`;
         aEl.classList.add("link-change");
         aEl.innerHTML = "Ändra";
@@ -77,17 +79,24 @@ function writeJobs(jobs) {
             deleteJob(job.id);
         });
 
+        //eventlyssnare för ändra
         aEl.addEventListener("click", () => {
             changeJobData(job);
         })
     })
 }
 
+//funktion för hämta data till ändring av befintligt jobb
 function changeJobData(job) {
     let changeFormEl = document.getElementById("form-change");
     changeFormEl.classList.remove("hidden");
 
-    let submitButton = document.getElementById("change-submit-button");
+    //skapa knapp för ändring
+    let changeButtonEl = document.createElement("button");
+    changeButtonEl.innerHTML = "Ändra";
+
+    //lägg till knapp i DOM
+    changeFormEl.appendChild(changeButtonEl);
 
     //Formulärdata
     let companyname = document.getElementById("change-companyname");
@@ -105,20 +114,19 @@ function changeJobData(job) {
     startdate.value = job.startdate;
     enddate.value = job.enddate;
 
-    //Varibel för errors-element DOM
-    let errorsEl = document.getElementById("errors-change");
-    errorsEl.innerHTML = "";
+    changeButtonEl.addEventListener("click", () => {
+        //Varibel för errors-element DOM
+        let errorsEl = document.getElementById("errors-change");
+        errorsEl.innerHTML = "";
 
-    //Array för felhantering
-    let errors = [];
+        //Array för felhantering
+        let errors = [];
 
-    //Funktion för korrekt datumformat
-    function isValidDate(stringDate) {
-        const regex = /^\d{4}-\d{2}-\d{2}$/;
-        return regex.test(stringDate);
-    }
-
-    submitButton.addEventListener("click", () => {
+        //Funktion för korrekt datumformat
+        function isValidDate(stringDate) {
+            const regex = /^\d{4}-\d{2}-\d{2}$/;
+            return regex.test(stringDate);
+        }
 
         //Validering av formulärdata, kontroll ej tom + datum validering
         if (companyname.value === "") {
@@ -154,8 +162,12 @@ function changeJobData(job) {
             })
         } else { //Vid inga felmeddelanden ändra i API
 
+            //göm formulär
             changeFormEl.classList.add("hidden");
+            //ta bort knapp
+            changeButtonEl.remove();
 
+            //skapa job-objekt
             let changedJob = {
                 companyname: companyname.value,
                 jobtitle: jobtitle.value,
@@ -165,6 +177,7 @@ function changeJobData(job) {
                 enddate: enddate.value
             }
 
+            //kör funktion för ändring, skicka med id och jobb-objekt
             changeJob(job.id, changedJob);
         }
     })
