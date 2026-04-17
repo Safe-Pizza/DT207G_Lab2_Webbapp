@@ -18,27 +18,34 @@ async function fetchData() {
 
 //funktion för DELETE i API
 async function deleteJob(id) {
-    const res = await fetch(`http://localhost:5000/jobs/${id}`, {
-        method: "DELETE",
-    });
+    try {
+        const res = await fetch(`http://localhost:5000/jobs/${id}`, {
+            method: "DELETE",
+        });
 
-    const data = await res.json();
-    fetchData();
+        const data = await res.json();
+        fetchData();
+    } catch (error) {
+        console.error(`Felmeddelande ${error}`);
+    }
 }
 
 //funktion för PUT (ändring av befintligt jobb) i API
 async function changeJob(id, job) {
-    const res = await fetch(`http://localhost:5000/jobs/${id}`, {
-        method: "PUT",
-        headers: {
-            "content-type": "application/json"
-        },
-        body: JSON.stringify(job)
-    });
+    try {
+        const res = await fetch(`http://localhost:5000/jobs/${id}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(job)
+        });
 
-    const data = await res.json();
-    console.log(data);
-    fetchData();
+        const data = await res.json();
+        fetchData();
+    } catch (error) {
+        console.error(`Felmeddelande ${error}`);
+    }
 }
 
 //funktion för att skriva ut jobb till DOM
@@ -61,7 +68,7 @@ function writeJobs(jobs) {
        <p><strong>Anställningsdatum: </strong>${job.startdate}</p>
        <p><strong>Anställning avslutad: </strong>${job.enddate}</p>`;
 
-       //lägg till attribut och text
+        //lägg till attribut och text
         aEl.href = `#form-change`;
         aEl.classList.add("link-change");
         aEl.innerHTML = "Ändra";
