@@ -1,6 +1,9 @@
 # Laboration 2 Uppgift 2, DT207G Webbtjänster
 Detta är en laboration i _Webbutveckingsprogrammet_ på Mittuniveristetet.
 
+## Redovsning
+[Redovisningsvideo](https://youtu.be/c6IRwHEpC5g)
+
 ## Syfte
 Syftet med denna laboration är att bekanta dig med med begreppet webbtjänster och kunna använda Fetch API för att konsumera webbtjänsten för arbetserfarnheter skapad i uppgift 1.
 
