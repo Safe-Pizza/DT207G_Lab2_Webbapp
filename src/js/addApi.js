@@ -7,17 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 })
 
-
-
 //funktion för att lägga till jobb i API
 function addJob() {
     //Formulärdata
-    let companyname = document.getElementById("companyname").value;
-    let jobtitle = document.getElementById("jobtitle").value;
-    let location = document.getElementById("location").value;
-    let description = document.getElementById("description").value;
-    let startdate = document.getElementById("startdate").value;
-    let enddate = document.getElementById("enddate").value;
+    let companyname = document.getElementById("companyname");
+    let jobtitle = document.getElementById("jobtitle");
+    let location = document.getElementById("location");
+    let description = document.getElementById("description");
+    let startdate = document.getElementById("startdate");
+    let enddate = document.getElementById("enddate");
 
     //Varibel för errors-element DOM
     let errorsEl = document.getElementById("errors");
@@ -33,29 +31,29 @@ function addJob() {
     }
 
     //Validering av formulärdata, kontroll ej tom + datumvalidering
-    if (companyname === "") {
+    if (companyname.value === "") {
         errors.push("<li>Du måste fylla i företagsnamn</li>");
     }
 
-    if (jobtitle === "") {
+    if (jobtitle.value === "") {
         errors.push("<li>Du måste fylla i jobbtitel</li>");
     }
-    if (location === "") {
+    if (location.value === "") {
         errors.push("<li>Du måste fylla i stad</li>");
     }
-    if (description === "") {
+    if (description.value === "") {
         errors.push("<li>Du måste fylla i beskrivning</li>");
     }
-    if (startdate === "") {
+    if (startdate.value === "") {
         errors.push("<li>Du måste fylla i startdatum</li>");
     }
-    if (isValidDate(startdate) === false) {
+    if (isValidDate(startdate.value) === false) {
         errors.push("<li>Datumformatet måste vara: XXXX-XX-XX</li>")
     }
-    if (enddate === "") {
+    if (enddate.value === "") {
         errors.push("<li>Du måste fylla i slutdatum</li>");
     }
-    if (isValidDate(enddate) === false) {
+    if (isValidDate(enddate.value) === false) {
         errors.push("<li>Datumformatet måste vara: XXXX-XX-XX</li>")
     }
 
@@ -67,24 +65,24 @@ function addJob() {
     } else { //Vid inga felmeddelanden lägg till i API
         //skapa objekt
         let job = {
-            companyname: companyname,
-            jobtitle: jobtitle,
-            location: location,
-            descripton: description,
-            startdate: startdate,
-            enddate: enddate
+            companyname: companyname.value,
+            jobtitle: jobtitle.value,
+            location: location.value,
+            descripton: description.value,
+            startdate: startdate.value,
+            enddate: enddate.value
         }
 
         //skicka objekt till funktion för POST
         createJob(job);
 
         //töm formulärfält
-        companyname = "";
-        jobtitle = "";
-        location = "";
-        description = "";
-        startdate = "";
-        enddate = "";
+        companyname.value = "";
+        jobtitle.value = "";
+        location.value = "";
+        description.value = "";
+        startdate.value = "";
+        enddate.value = "";
     }
 }
 

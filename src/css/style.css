@@ -86,6 +86,14 @@ button:active {
   background-color: rgb(103, 74, 79);
 }
 
+.delete-button {
+  background-color: rgb(135, 34, 34);
+}
+
+.delete-button:active {
+  background-color: rgb(79, 20, 20);
+}
+
 @media screen and (max-width: 600px) {
   body {
     font-size: 0.8em;
